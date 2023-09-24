@@ -5,6 +5,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * 비슷한 코드를 찾았다. 이해에는 이분의 코드가 더 적절할듯 하다.
+ * 링크: https://www.acmicpc.net/source/67015799
+ */
+
 public class B12891 {
 
     static int[] time = new int[4]; // 있어야 하는 dna 개수
