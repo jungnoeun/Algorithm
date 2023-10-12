@@ -6,7 +6,7 @@ import java.util.Stack;
 public class B1874 {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
-        // n (몇번인지) 입력받음
+        // n (몇번인지) 입력 받음
         Scanner sc = new Scanner(System.in);
         int time = sc.nextInt();
         int input;
