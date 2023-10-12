@@ -5,14 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.ListIterator;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.StringTokenizer;
+
 
 public class B1406{
 
@@ -76,29 +69,10 @@ public class B1406{
 
                 }
 
-                /*
-                 * if(comm.equals('P')) { // Lplus(lp); char lcp = lin.charAt(2); iter.add(lcp);
-                 * } else if(comm.equals("L")) { // cLeft(); if(iter.hasPrevious())
-                 * iter.previous(); } else if(comm.equals("D")) { // cRight();
-                 * if(iter.hasNext()) iter.next(); } else if(comm.equals("B")) { // lRemove();
-                 * if(iter.hasPrevious()) { iter.previous(); iter.remove(); } }
-                 */
-
             }
 
             System.out.println(String.join("", li));
 
-
-            /*
-             * for(int i=0; i<li.size(); i++) { bw.write(li.get(i));
-             * //sbr.append(li.get(i)); }
-             */
-
-            //bw.write(String.valueOf(sbr));
-
-            //br.close();
-            //bw.flush();
-            //bw.close();
         }
 
 
