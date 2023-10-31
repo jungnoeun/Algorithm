@@ -21,13 +21,8 @@ public class TlawOfLargeNumbers {
         // 큰 수를 만들기 위해 가장 큰 값과 두 번째로 큰 값을 골라냄
         Arrays.sort(list, Collections.reverseOrder());
         int max = list[0];
-        int sec = 0;
-        for(int i=1; i<N; i++) {
-            if(list[0] != list[i]) {
-                sec = list[i];
-                break;
-            }
-        }
+        int sec = list[1];
+
 
         // 큰 수 만들기
         for(int i=0; i<M; i++) {
