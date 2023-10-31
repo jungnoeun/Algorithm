@@ -9,15 +9,14 @@ public class TARoyalNight {
         int locX = loc.charAt(0) - 97;
         int locY = loc.charAt(1) - '0' -1;
         int count = 0;
+        int[] dx = {2, 2, -2, -2, 1, -1, 1, -1};
+        int[] dy = {1, -1, 1, -1, 2, 2, -2, -2};
 
-        if(checkEnd(locX+2, locY+1) == true) count++;
-        if(checkEnd(locX+2, locY-1) == true) count++;
-        if(checkEnd(locX-2, locY+1) == true) count++;
-        if(checkEnd(locX-2, locY-1) == true) count++;
-        if(checkEnd(locX+1, locY+2) == true) count++;
-        if(checkEnd(locX-1, locY+2) == true) count++;
-        if(checkEnd(locX+1, locY-2) == true) count++;
-        if(checkEnd(locX-1, locY-2) == true) count++;
+        for(int i=0; i<8; i++) {
+            if (checkEnd(locX + dx[i], locY + dy[i]) == true) {
+                count++;
+            }
+        }
 
         System.out.println(count);
 
