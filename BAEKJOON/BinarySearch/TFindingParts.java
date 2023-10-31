@@ -29,20 +29,20 @@ public class TFindingParts {
             int start = 0, end = N-1;
             int mid = (start + end)/2;
             while(true) {
-                if(list[mid] == order[i]) {
+                if(list[mid] == order[i]) { // 원하는 값을 찾았을때
                     System.out.println("yes");
                     break;
                 }
-                else if(start >= end) {
+                else if(start >= end) { // list에 찾는 값이 없을 경우
                     System.out.println("no");
                     break;
                 }
 
-                else if(list[mid] > order[i]) {
+                else if(list[mid] > order[i]) { // mid위치의 값이 찾는 값보다 클때
                     end = mid-1;
                     mid = (start + end)/2;
                 }
-                else if(list[mid] < order[i]){
+                else if(list[mid] < order[i]){ // mid위치의 값이 찾는 값보다 작을때
                     start = mid+1;
                     mid = (start + end)/2;
                 }
