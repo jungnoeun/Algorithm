@@ -13,37 +13,37 @@ public class S13038 {
         int[] minLec = new int[8];
         int it = 0;
         int result = 0;
-        int minStart = 0;
 
         for(int i=1; i<=TC; i++) { // 테스트 경우 수 동안 반복
             int N = Integer.parseInt(br.readLine());
             st = new StringTokenizer(br.readLine());
-            for(int j=1; j<=7; j++) { // 학교를 가는 일자를 입력받기
+            for(int j=0; j<7; j++) { // 학교를 가는 일자를 입력받기
                 day[j] = Integer.parseInt(st.nextToken());
             }
 
-            it = 1; // 일주일 동안 강의를 들을 수 있는 최대 일수
-            for (int j = 1; j <= 7; j++) { // 강의 j번에(j<7) 따라 들어야 하는 최소한의 일수
+            // 첫 개강일 별 최소 일수를 minLec에 저장
+            int min = Integer.MAX_VALUE;
+            for(int j=0; j<7; j++) {
                 if(day[j] == 1) {
-                    if(it == 1) {
-                        minStart = j-1;
+                    int daycnt = j; // j번째 날을 기준으로 시작
+                    int listening = 0; // 실제로 들은 강의 수
+
+                    while(true) {
+                        if(day[daycnt%7] == 1) { // 0~6 외의 날짜는 조회못하므로 %7을 사용
+                            listening++; // 강의를 들어서 +1
+                        }
+                        daycnt++; // 다음날도 조회해야 하므로 +1
+
+                        if(listening == N)  { // 들어야 하는 강의 수가 되었다면
+                            min = Math.min(min, daycnt - j); // 기존 값과 새로 구한 값중 작은 것으로 저장
+                            break;
+                        }
                     }
-                    minLec[it++] = j;
+
                 }
             }
 
-            it -= 1; // 7일동안 강의를 들을 수 있는 최대의 날짜 수
-
-            if(it == 1) {
-                result = 7*(N-1) + minLec[1] - minStart;
-            }
-            else {
-                result = (N/it) * 7;
-                result += minLec[N % it];
-                result -= minStart;
-            }
-
-            System.out.println("#"  + i + " " + result);
+            System.out.println("#"  + i + " " + min);
 
         }
 
