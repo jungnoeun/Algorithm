@@ -17,7 +17,6 @@ public class B2493 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) { // 탑의 높이들을 입력받음
             top[i] = Integer.parseInt(st.nextToken());
-            stack.push(top[i]);
         }
 
         sb.append("0 ");
