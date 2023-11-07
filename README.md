@@ -23,3 +23,6 @@
 
 ### [다이나믹 프로그래밍](https://velog.io/@jungnoeun/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 : 큰 문제를 작게 나누고, 같은 문제라면 한 번씩만 풀어 문제를 효율적으로 해결하는 알고리즘
+
+### [0-1 knapsack 배낭 문제](https://velog.io/@jungnoeun/DP-0-1Knapsack)
+: 어떤 조건 하에 1~N 사이 임의의 값 k를 포함하여야 최대값인지, k를 포함하지 않아야 최대값인지 구별하여 최대값을 구하는 문제
