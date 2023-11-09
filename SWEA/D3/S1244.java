@@ -33,7 +33,7 @@ public class S1244 {
             dfs(0, 0);
 
 
-            System.out.println(max);
+            System.out.println("#" + test_case + " " + max);
 
             // 초기화
             total = 0;
@@ -68,8 +68,6 @@ public class S1244 {
             }
         }
 
-
     }
-
 
 }
