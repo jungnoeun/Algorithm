@@ -41,30 +41,13 @@ public class S4615 {
                 by = Integer.parseInt(st.nextToken());
                 bx = Integer.parseInt(st.nextToken());
                 rock = Integer.parseInt(st.nextToken());
-                System.out.println();
+
                 board[by][bx] = rock;
-                isChange = false;
-                checkBoard();
-                for (int j = 1; j <= N; j++) {
-                    for (int k = 1; k <= N; k++) {
-                        System.out.print(board[j][k] + " ");
-                    }
-                    System.out.println();
-                }
-                System.out.println("=========================");
+
+                checkBoard(by, bx);
+
             }
 
-            while(isChange) {
-                isChange = false;
-                checkBoard();
-                for (int j = 1; j <= N; j++) {
-                    for (int k = 1; k <= N; k++) {
-                        System.out.print(board[j][k] + " ");
-                    }
-                    System.out.println();
-                }
-                System.out.println("=========================");
-            }
 
             int w = 0, b = 0;
             for (int i = 1; i <= N; i++) {
@@ -84,30 +67,40 @@ public class S4615 {
 
     }
 
-    static void checkBoard() {
-        int[] dx1 = {1,-1, 1, 0}; // 상하좌우대각선
-        int[] dy1 = {1, 1, 0, 1};
+    static void checkBoard(int y, int x) {
+        int[] dy = {-1, -1, -1, 0, 0, 1, 1, 1}; // 상하좌우대각선
+        int[] dx = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-        int[] dx2 = {-1, 1, -1, 0};
-        int[] dy2 = {-1, -1, 0, -1};
+        for (int i = 0; i < 8; i++) {
+            int ny = dy[i] + y;
+            int nx = dx[i] + x;
 
-
-        for (int i = 1; i < N+1; i++) {
-            for (int j = 1; j < N + 1; j++) {
-                for (int k = 0; k < 4; k++) {
-                    if(i+dy1[k] <= N && j+dx1[k] <= N && i+dy2[k] <= N && j+dx2[k] <= N &&
-                            i+dy1[k] >= 1 && j+dx1[k] >= 1 && i+dy2[k] >= 1 && j+dx2[k] >= 1) {
-                        if(board[i][j] == 0)
-                            continue;
-
-                        if (board[i][j] != board[i + dy1[k]][j + dx1[k]] && board[i + dy1[k]][j + dx1[k]] != 0 && board[i + dy1[k]][j + dx1[k]] == board[i + dy2[k]][j + dx2[k]]) {
-                            board[i][j] = board[i + dy1[k]][j + dx1[k]];
-                            isChange = true;
-                        }
-                    }
+            while(true) {
+                if (ny < 1 || ny > N || nx < 1 || nx > N) {
+                    break;
                 }
-
+                if(board[ny][nx] == 0) { // 0이면 상하좌우대각선에 같은게 있어도 안바뀜
+                    break;
+                }
+                if(board[y][x] != board[ny][nx]) {
+                    ny += dy[i];
+                    nx += dx[i];
+                }
+                else { // board[y][x] == board[ny][nx]
+                    break;
+                }
             }
+
+            if((ny >= 1 && ny <= N && nx >= 1 && nx <= N ) && board[ny][nx] == board[y][x]) {
+                while(y != ny || x != nx) { // board[y][x] == board[ny][nx] 이므로 이 사이의 값을 다 바꿔줌
+                    board[ny][nx] = board[y][x];
+                    ny -= dy[i];
+                    nx -= dx[i];
+                }
+            }
+
         }
+
+
     }
 }
