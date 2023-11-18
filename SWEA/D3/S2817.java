@@ -46,16 +46,17 @@ public class S2817 {
         if(sum == M) {
             count++;
             return;
-        } else if(sum > M) {
+        }
+        if(sum > M) {
+            return;
+        } if(start >= N) {
             return;
         }
 
-        for (int i = start; i < N; i++) {
-            sum += numArr[i];
-            dfs(i + 1, sum);
-            sum -= numArr[i];
-
-        }
+        // start번째를 포함하는 경우
+        dfs(start + 1, sum + numArr[start]);
+        // start번째를 포함하지 않는 경우
+        dfs(start + 1, sum);
 
     }
 
